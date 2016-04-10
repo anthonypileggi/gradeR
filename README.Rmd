@@ -1,0 +1,23 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+  ```{r, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE,
+                      comment = "#>",
+                      fig.path = "README-")
+```
+
+
+## Installation
+```{r, echo = TRUE, eval = FALSE}
+devtools::install_github(repo = "anthonypileggi/gradeR")
+```
+
+## Quick Demo
+```{r, echo = TRUE, eval = TRUE, include = TRUE}
+library(gradeR)
+
+```
