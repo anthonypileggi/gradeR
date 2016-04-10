@@ -20,13 +20,14 @@
 #' @export
 #'
 
-createKey <- function(lesson_name, vars = NA){
+createKey <- function(lesson_name = "homework", vars = NA){
 
   # If vars is not specified, include all variables in current workspace
   vars <- ifelse(is.na(vars), ls(), vars)
 
   # Store answers in a list
-  answers <- sapply(vars, get)
+  answers <- lapply(vars, get)
+  names(answers) <- vars
 
   # Save the key as an .Rdata file
   save(answers, file = paste0(lesson_name, "_KEY.Rdata"))
