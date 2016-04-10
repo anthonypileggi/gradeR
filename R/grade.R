@@ -55,7 +55,7 @@ grade <- function(assignment, key, grade_for_completion = FALSE){
     grades[J] <- 100 * (number_correct / length(answers))
 
     # Purge workspace of student-created variables
-    rm(list = names(answers))
+    suppressWarnings(rm(list = names(answers)))
 
   }
 
