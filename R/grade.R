@@ -2,6 +2,7 @@
 #'
 #' @param assignment Full path to assignment (.Rdata) (character).  Can be a vector.
 #' @param key Full path to key (.Rdata) (character).
+#' @param grade_for_completion Should grading be based on completion or accuracy (default = FALSE).
 #' @return Data.frame with the file names and corresponding grades.
 #' @seealso \code{\link{createKey}}
 #' @examples

@@ -10,6 +10,8 @@ grade(assignment, key, grade_for_completion = FALSE)
 \item{assignment}{Full path to assignment (.Rdata) (character).  Can be a vector.}
 
 \item{key}{Full path to key (.Rdata) (character).}
+
+\item{grade_for_completion}{Should grading be based on completion or accuracy (default = FALSE).}
 }
 \value{
 Data.frame with the file names and corresponding grades.

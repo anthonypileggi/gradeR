@@ -4,7 +4,7 @@
 \alias{createKey}
 \title{Create an Answer Key}
 \usage{
-createKey(key_name = "homework", vars = NA)
+createKey(key_name = "homework", vars = ls(name = ".GlobalEnv"))
 }
 \arguments{
 \item{key_name}{Full path to the assignment name.  ("_KEY.Rdata" will be appended)}
