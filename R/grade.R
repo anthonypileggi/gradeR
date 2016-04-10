@@ -7,13 +7,18 @@
 #' @seealso \code{\link{createKey}}
 #' @examples
 #' \dontrun{
+#' # Answer key
 #' my_key <- file.path(getwd(), "Lesson1_KEY.Rdata")
 #'
+#' # Student assignments
 #' student_names <- c("Anthony", "Shannon", "Avery")
 #' students <- file.path(getwd(), paste0("Lesson1_", student_names, ".Rdata"))
 #'
+#' # Grade all students for completion
 #' grade(students, my_key, TRUE)
-#' grade(students, my_key, FALSE)
+#'
+#' # Grade all students for accuracy
+#' grade(students, my_key)
 #' }
 #'
 #' @export

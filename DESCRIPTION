@@ -5,6 +5,6 @@ Version: 0.1.0
 Authors@R: person("Anthony", "Pileggi", email = "anthony@ifixit.com", role = c("aut", "cre"))
 Description: Built primarily for Swirl, this package is for grading student
     completion of Swirl lessons.
-License: What license is it under?
+License: GPL-3
 LazyData: TRUE
 RoxygenNote: 5.0.1
