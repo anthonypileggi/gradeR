@@ -33,6 +33,7 @@ createKey <- function(key_name = "homework", vars = NA){
   #}
 
   vars <- ifelse(is.na(vars), ls(name = ".GlobalEnv"), vars)
+  print(vars)
 
   # Store answers in a list
   answers <- lapply(vars, get)
