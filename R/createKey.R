@@ -20,7 +20,7 @@
 #' @export
 #'
 
-createKey <- function(key_name = "homework", vars = NA){
+createKey <- function(key_name = "homework", vars = ls(name = ".GlobalEnv")){
 
   # If vars is not specified, include all variables in current workspace
   #if(is.na(vars)){
@@ -32,7 +32,7 @@ createKey <- function(key_name = "homework", vars = NA){
     #vars <- setdiff(cur_vars, c("key_name", "vars"))
   #}
 
-  vars <- ifelse(is.na(vars), ls(name = ".GlobalEnv"), vars)
+  #vars <- ifelse(is.na(vars), ls(name = ".GlobalEnv"), vars)
   print(vars)
 
   # Store answers in a list
