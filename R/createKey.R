@@ -1,6 +1,6 @@
 #' Create an Answer Key
 #'
-#' @param lesson_name Full path to the assignment name.  ("_KEY.Rdata" will be appended)
+#' @param key_name Full path to the assignment name.  ("_KEY.Rdata" will be appended)
 #' @param vars Names of the variables where answers are stored.  (default = all variables in current workspace)
 #' @return An .Rdata file containing the list 'answers' with solutions.
 #' @seealso \code{\link{grade}}
@@ -20,17 +20,26 @@
 #' @export
 #'
 
-createKey <- function(lesson_name = "homework", vars = NA){
+createKey <- function(key_name = "homework", vars = NA){
 
   # If vars is not specified, include all variables in current workspace
-  vars <- ifelse(is.na(vars), ls(), vars)
+  #if(is.na(vars)){
+
+    # Get all variables in global environment
+   # vars <- ls(name = ".GlobalEnv")
+
+    # Remove the inputs to this function
+    #vars <- setdiff(cur_vars, c("key_name", "vars"))
+  #}
+
+  vars <- ifelse(is.na(vars), ls(name = ".GlobalEnv"), vars)
 
   # Store answers in a list
   answers <- lapply(vars, get)
   names(answers) <- vars
 
   # Save the key as an .Rdata file
-  save(answers, file = paste0(lesson_name, "_KEY.Rdata"))
+  save(answers, file = paste0(key_name, "_KEY.Rdata"))
 
 }
 
