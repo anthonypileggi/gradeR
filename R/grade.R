@@ -24,19 +24,24 @@
 #' @export
 #'
 
-grade <- function(assignment, key, grade_for_completion = FALSE){
+grade <- function(assignment, key){
 
   # Load Answer Key
   load(key)
 
   # Load Students
-  grades <- rep(NA, length(assignment))
+  completion <- rep(NA, length(assignment))
+  accuracy <- rep(NA, length(assignment))
   for (J in seq_along(assignment)) {
+
+    # Clean workspace
+    rm(list = ls()[!grepl("assignment|key|answers|completion|accuracy|J", ls())])
 
     # Load data for current student
     load(assignment[J])
 
-    # Grading...
+    # Grading
+    number_exist <- 0
     number_correct <- 0
     for (I in seq_along(names(answers))) {
 
@@ -44,13 +49,11 @@ grade <- function(assignment, key, grade_for_completion = FALSE){
 
       if (exists(cur_var)) {
 
-        if (grade_for_completion) {
+        number_exist <- number_exist + 1
+
+        if (identical(get(cur_var), answers[[I]])) {
 
           number_correct <- number_correct + 1
-
-        } else {
-
-          number_correct <- number_correct + identical(get(cur_var), answers[[I]])
 
         }
 
@@ -58,7 +61,8 @@ grade <- function(assignment, key, grade_for_completion = FALSE){
 
     }
 
-    grades[J] <- 100 * (number_correct / length(answers))
+    completion[J] <- 100 * (number_exist / length(answers))
+    accuracy[J] <- 100 * (number_correct / length(answers))
 
     # Purge workspace of student-created variables
     suppressWarnings(rm(list = names(answers)))
@@ -66,5 +70,6 @@ grade <- function(assignment, key, grade_for_completion = FALSE){
   }
 
   return(data.frame(File = assignment,
-                    Grade = grades))
+                    Completion = completion,
+                    Accuracy = accuracy))
 }

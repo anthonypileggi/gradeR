@@ -4,7 +4,7 @@
 \alias{grade}
 \title{Grade based on R workspace equivalence}
 \usage{
-grade(assignment, key, grade_for_completion = FALSE)
+grade(assignment, key)
 }
 \arguments{
 \item{assignment}{Full path to assignment (.Rdata) (character).  Can be a vector.}

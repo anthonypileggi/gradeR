@@ -22,19 +22,6 @@
 
 createKey <- function(key_name = "homework", vars = ls(name = ".GlobalEnv")){
 
-  # If vars is not specified, include all variables in current workspace
-  #if(is.na(vars)){
-
-    # Get all variables in global environment
-   # vars <- ls(name = ".GlobalEnv")
-
-    # Remove the inputs to this function
-    #vars <- setdiff(cur_vars, c("key_name", "vars"))
-  #}
-
-  #vars <- ifelse(is.na(vars), ls(name = ".GlobalEnv"), vars)
-  print(vars)
-
   # Store answers in a list
   answers <- lapply(vars, get)
   names(answers) <- vars
